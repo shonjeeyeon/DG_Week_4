@@ -1,8 +1,8 @@
+#Consulted https://github.com/memudualimatou/INSURANCE-CHARGES-WEB-APPLICATION/blob/main for categorical inputs
+
 import numpy as np
 import pickle
 from flask import Flask, request, render_template
-
-#Consulted: https://github.com/memudualimatou/INSURANCE-CHARGES-WEB-APPLICATION/blob/main/app.py
 
 app = Flask(__name__, template_folder='templates')
 model = pickle.load(open("model.pkl", 'rb'))
