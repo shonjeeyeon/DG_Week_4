@@ -3,6 +3,6 @@ numpy
 matplotlib
 seaborn
 sklearn
-flask import Flask
+flask
 pickle
 gunicorn
