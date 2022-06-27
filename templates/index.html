@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drug Prediction Model</title>
+    <style>
+
+body {background-color: #f5f5f5; align='center'; valign='center'; text-align: center;}
+p {color: black; font-family: Arial, Helvetica, sans-serif; text-align: center;}
+h1 {color: #008080; font-family: Arial, Helvetica, sans-serif; text-align: center;}
+h3 {color: black; font-family: Arial, Helvetica, sans-serif; text-align: center;}
+
+input, select {width: 80%; padding: 12px 20px; margin: 8px 0; display: inline-block;
+    border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;}
+
+button {width: 80%; background-color: #008080; color: white; padding: 14px 20px;
+  margin: 8px 0; border: none; border-radius: 4px; cursor: pointer;}
+
+</style>
+</head>
+
+<body>
+<h1>Drug Prediction Model</h1>
+<p>Please enter patient information below.</p><br>
+<form action="{{url_for('predict')}}" method="post">
+          <input class="Input" type="number" name="age" placeholder="TYPE AGE" required/><br><br>
+
+<select name="comp_select" class="Input">
+      {% for o in data1 %}
+      <option value="{{ o.sex }}">{{ o.sex }}</option>
+      {% endfor %}
+</select><br><br>
+
+<select name="comp_select1" class="Input">
+      {% for o in data2 %}
+      <option value="{{ o.bp }}">{{ o.bp }}</option>
+      {% endfor %} </select><br><br>
+
+    <select name="comp_select2" class="Input">
+      {% for o in data3 %}
+      <option value="{{ o.ch }}">{{ o.ch }}</option>
+      {% endfor %}
+    </select><br><br>
+
+    <input class="Input" type="number" name="nak" placeholder="TYPE Na to K RATIO" required/>
+          <br>
+    <button type="submit" class="pred-btn"> PREDICT </button>
+          </form><br>
+
+    <h3> {{prediction_text}} </h3>
+
+</body>
+</html>
